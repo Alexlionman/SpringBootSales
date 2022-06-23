@@ -20,27 +20,10 @@ import java.time.LocalDate;
 public class VendasApplication {
 
     @Bean
-    public CommandLineRunner init(@Autowired ClienteRepository clienteRepository,
-                                  @Autowired PedidoRepository pedidoRepository) {
+    public CommandLineRunner init(@Autowired ClienteRepository clienteRepository) {
         return args -> {
-            System.out.println("Salvando...");
             Cliente cliente = new Cliente("Alex");
             clienteRepository.save(cliente);
-
-            Pedido pedido = new Pedido();
-            pedido.setCliente(cliente);
-            pedido.setDataPedido(LocalDate.now());
-            pedido.setTotal(BigDecimal.valueOf(100));
-
-            pedidoRepository.save(pedido);
-
-            pedidoRepository.findByCliente(cliente).stream().forEach(System.out::println);
-
-
-//            Cliente clienteOut = clienteRepository.findClienteFetchPedidos(cliente.getId());
-//            System.out.println("Cliente: " + clienteOut);
-//            System.out.println("Pedidos: " + clienteOut.getPedidos());
-
     };
 }
 
