@@ -1,5 +1,6 @@
 package com.springbootsales.domain.entity;
 
+import com.springbootsales.domain.enums.StatusPedido;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,6 +27,10 @@ public class Pedido {
 
     @Column(name = "data_pedido")
     private LocalDate dataPedido;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name="status")
+    private StatusPedido statusPedido;
 
     @Column(name = "total", precision = 20, scale = 2)//20 digitos, com 2 casas decimais
     private BigDecimal total;

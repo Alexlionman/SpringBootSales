@@ -4,22 +4,23 @@ import com.springbootsales.domain.entity.Cliente;
 import com.springbootsales.domain.entity.ItemPedido;
 import com.springbootsales.domain.entity.Pedido;
 import com.springbootsales.domain.entity.Produto;
+import com.springbootsales.domain.enums.StatusPedido;
 import com.springbootsales.domain.repository.ClienteRepository;
 import com.springbootsales.domain.repository.ItemPedidoRepository;
 import com.springbootsales.domain.repository.PedidoRepository;
 import com.springbootsales.domain.repository.ProdutoRepository;
+import com.springbootsales.exception.PedidoNaoEncontradoException;
 import com.springbootsales.exception.RegraNegocioException;
-import com.springbootsales.rest.ClienteController;
 import com.springbootsales.rest.dto.ItemPedidoDTO;
 import com.springbootsales.rest.dto.PedidoDTO;
 import com.springbootsales.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -48,6 +49,7 @@ public class PedidoServiceImpl implements PedidoService {
         pedido.setTotal(dto.getTotal());
         pedido.setDataPedido(LocalDate.now());
         pedido.setCliente(cliente);
+        pedido.setStatusPedido(StatusPedido.REALIZADO);
 
         List<ItemPedido> itensPedido = convertItens(pedido, dto.getItens());
 
@@ -76,6 +78,22 @@ public class PedidoServiceImpl implements PedidoService {
                     itemPedido.setProduto(produto);
                     return itemPedido;
                 }).collect(Collectors.toList());
+    }
+
+    @Override
+    public Optional<Pedido> obterPedidoCompleto(Integer id) {
+        return pedidoRepository.findByIdFetchItens(id);
+    }
+
+    @Override
+    @Transactional
+    public void atualizaStatus(Integer id, StatusPedido statusPedido) {
+        pedidoRepository
+                .findById(id)
+                .map( pedido -> {
+                    pedido.setStatusPedido(statusPedido);
+                    return pedidoRepository.save(pedido);
+                }).orElseThrow(() -> new PedidoNaoEncontradoException());
     }
 }
 
