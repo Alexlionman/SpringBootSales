@@ -22,8 +22,8 @@ public class VendasApplication {
     @Bean
     public CommandLineRunner init(@Autowired ClienteRepository clienteRepository) {
         return args -> {
-            Cliente cliente = new Cliente("Alex");
-            clienteRepository.save(cliente);
+//            Cliente cliente = new Cliente("Alex");
+//            clienteRepository.save(cliente);
     };
 }
 
