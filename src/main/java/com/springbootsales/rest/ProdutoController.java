@@ -1,6 +1,6 @@
 package com.springbootsales.rest;
 
-import com.springbootsales.domain.entity.Produto;
+import com.springbootsales.domain.repository.entity.Produto;
 import com.springbootsales.domain.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;

@@ -1,7 +1,7 @@
 package com.springbootsales.rest;
 
-import com.springbootsales.domain.entity.ItemPedido;
-import com.springbootsales.domain.entity.Pedido;
+import com.springbootsales.domain.repository.entity.ItemPedido;
+import com.springbootsales.domain.repository.entity.Pedido;
 import com.springbootsales.domain.enums.StatusPedido;
 import com.springbootsales.rest.dto.AtualizacaoStatusPedidoDTO;
 import com.springbootsales.rest.dto.InformacaoItemPedidoDTO;
@@ -9,14 +9,12 @@ import com.springbootsales.rest.dto.InformacoesPedidoDTO;
 import com.springbootsales.rest.dto.PedidoDTO;
 import com.springbootsales.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
 import java.time.format.DateTimeFormatter;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;

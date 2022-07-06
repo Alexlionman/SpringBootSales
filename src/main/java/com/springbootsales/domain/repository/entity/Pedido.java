@@ -1,4 +1,4 @@
-package com.springbootsales.domain.entity;
+package com.springbootsales.domain.repository.entity;
 
 import com.springbootsales.domain.enums.StatusPedido;
 import lombok.AllArgsConstructor;
@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;

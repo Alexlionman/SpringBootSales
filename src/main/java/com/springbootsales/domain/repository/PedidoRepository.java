@@ -1,7 +1,7 @@
 package com.springbootsales.domain.repository;
 
-import com.springbootsales.domain.entity.Cliente;
-import com.springbootsales.domain.entity.Pedido;
+import com.springbootsales.domain.repository.entity.Cliente;
+import com.springbootsales.domain.repository.entity.Pedido;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

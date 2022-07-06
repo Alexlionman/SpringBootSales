@@ -1,4 +1,4 @@
-package com.springbootsales.domain.entity;
+package com.springbootsales.domain.repository.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -9,7 +9,6 @@ import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import java.util.Collection;
 import java.util.Set;
 
 @Entity

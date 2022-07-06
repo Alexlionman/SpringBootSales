@@ -1,11 +1,9 @@
 package com.springbootsales.rest.dto;
 
-import com.springbootsales.domain.entity.Cliente;
 import com.springbootsales.validation.NotEmptyList;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.List;

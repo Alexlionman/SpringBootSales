@@ -1,4 +1,4 @@
-package com.springbootsales.domain.entity;
+package com.springbootsales.domain.repository.entity;
 
 import lombok.*;
 

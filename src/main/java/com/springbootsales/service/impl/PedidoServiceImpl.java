@@ -1,9 +1,9 @@
 package com.springbootsales.service.impl;
 
-import com.springbootsales.domain.entity.Cliente;
-import com.springbootsales.domain.entity.ItemPedido;
-import com.springbootsales.domain.entity.Pedido;
-import com.springbootsales.domain.entity.Produto;
+import com.springbootsales.domain.repository.entity.Cliente;
+import com.springbootsales.domain.repository.entity.ItemPedido;
+import com.springbootsales.domain.repository.entity.Pedido;
+import com.springbootsales.domain.repository.entity.Produto;
 import com.springbootsales.domain.enums.StatusPedido;
 import com.springbootsales.domain.repository.ClienteRepository;
 import com.springbootsales.domain.repository.ItemPedidoRepository;
