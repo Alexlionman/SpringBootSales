@@ -1,5 +1,6 @@
-package com.springbootsales;
+package com.springbootsales.security.jwt;
 
+import com.springbootsales.VendasApplication;
 import com.springbootsales.domain.repository.entity.Usuario;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;

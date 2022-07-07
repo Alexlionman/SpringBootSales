@@ -2,6 +2,7 @@ package com.springbootsales.service.impl;
 
 import com.springbootsales.domain.repository.UsuarioRepository;
 import com.springbootsales.domain.repository.entity.Usuario;
+import com.springbootsales.exception.SenhaInvalidaException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -38,5 +39,18 @@ public class UsuarioServiceImpl implements UserDetailsService {
     public Usuario salvar(Usuario usuario){
         return usuarioRepository.save(usuario);
     }
+
+    public UserDetails autentincar(Usuario usuario){
+        UserDetails userDetails = loadUserByUsername(usuario.getLogin());
+        boolean senhasBatem = encoder.matches(usuario.getSenha(), userDetails.getPassword());
+
+        if(senhasBatem){
+            return userDetails;
+        }
+
+        throw new SenhaInvalidaException();
+    }
+
+
 }
 
